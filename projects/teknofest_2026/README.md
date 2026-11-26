@@ -34,7 +34,13 @@ Computer Vision Team Member
 | Experimental work | Participated in repeated laboratory tests and physical measurements |
 | Collaboration | Coordinated with other contributors, including the teammate responsible for the GUI |
 
-The activities above are based on my account of the project. Exact counts, final model versions and quantitative performance claims are not independently verified.
+## Dataset records and model selection
+
+| Record | Finding | Scope |
+| --- | --- | --- |
+| Training manifest (`train.txt`) | 687 JPEG paths, all distinct | Counts file references. Image contents and visual duplicates were not checked. |
+| Dataset configuration (`data(3).yaml`) | 5 class entries | Describes this configuration. The archived run's configuration remains unverified. |
+| Preferred model run | `rocket_son` | My selection from project testing. Comparable validation scores are unavailable. |
 
 ## Technical experience
 
