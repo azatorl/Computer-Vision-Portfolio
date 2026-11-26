@@ -22,6 +22,8 @@ I independently carried out the computer vision and model development work withi
 
 The original project archive includes three model files named `yolov8n.pt`, `yolo11n.pt` and `yolo26n.pt`, Python scripts, annotation files and dataset configuration documents.
 
+The original archive also contains `rocket_son.zip`, identified by the author as material associated with the model he used most frequently. Inspection of this ZIP confirms that it contains annotation and dataset metadata files, not a model checkpoint. The associated trained weights have not been identified in the supplied archive.
+
 The checkpoint provenance and training metrics have not been independently verified. The model binaries and original annotations are not included in this public repository. The archive does not contain the corresponding image samples, so it is not a complete reproducible dataset.
 
 **Technical stack:** Python · OpenCV · YOLO · CVAT · Linux · Raspberry Pi
