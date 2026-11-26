@@ -1,0 +1,87 @@
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtGui import QPainter, QPen, QColor, QFont, QPolygon
+from PyQt5.QtCore import Qt, QPoint
+
+class NamluGostergesi(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.azimut = 0.0  # Başlangıç açısı
+        self.setMinimumSize(160, 160)
+
+    def veri_guncelle(self, azimut):
+        self.azimut = azimut
+        self.update()
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.Antialiasing)
+
+        w = self.width()
+        h = self.height()
+        r = min(w, h) / 2 - 10
+        centro = QPoint(int(w / 2), int(h / 2))
+
+        # 1. Dış Halka Daire
+        pen_daire = QPen(QColor(0, 180, 0), 2)
+        painter.setPen(pen_daire)
+        painter.drawEllipse(centro, int(r), int(r))
+
+        # İç Radar Izgarası
+        pen_ic = QPen(QColor(0, 80, 0), 1, Qt.DashLine)
+        painter.setPen(pen_ic)
+        painter.drawEllipse(centro, int(r * 0.6), int(r * 0.6))
+        painter.drawEllipse(centro, int(r * 0.3), int(r * 0.3))
+
+        # 2. Açı Çizgileri ve Yönler (K, S, D, B)
+        painter.setPen(QPen(QColor(0, 255, 0), 1))
+        painter.setFont(QFont('Consolas', 10, QFont.Bold))
+
+        for angle in range(0, 360, 30):
+            painter.save()
+            painter.translate(centro)
+            painter.rotate(angle)
+            cizgi_boyu = 0.85 if angle % 90 == 0 else 0.90
+            painter.drawLine(0, int(-r), 0, int(-r * cizgi_boyu))
+            painter.restore()
+
+        yonler = [('K', 0), ('G', 180), ('D', 90), ('B', 270)]
+        font_metrics = painter.fontMetrics()
+        for text, angle in yonler:
+            painter.save()
+            painter.translate(centro)
+            painter.rotate(angle)
+            tw = font_metrics.width(text)
+            painter.drawText(int(-tw / 2), int(-r * 0.68), text)
+            painter.restore()
+
+        # 3. Anlık Namlu Yönü Oku (Taktik Sarı)
+        painter.save()
+        painter.translate(centro)
+        painter.rotate(self.azimut)
+
+        # Ok Gövdesi
+        painter.setPen(QPen(QColor(255, 215, 0), 3))
+        painter.drawLine(0, 0, 0, int(-r * 0.85))
+
+        # Ok Ucu Üçgeni
+        painter.setBrush(QColor(255, 215, 0))
+        arrow_head = QPolygon([
+            QPoint(-5, int(-r * 0.75)),
+            QPoint(5, int(-r * 0.75)),
+            QPoint(0, int(-r * 0.88))
+        ])
+        painter.drawPolygon(arrow_head)
+        painter.restore()
+
+        # 4. Merkez Noktası ve Açı Metni
+        painter.setPen(QPen(QColor(0, 255, 0), 1))
+        painter.setBrush(QColor(0, 255, 0))
+        painter.drawEllipse(centro, 4, 4)
+
+        # Alt Kısma Sayısal Açı Yazısı
+        painter.setFont(QFont('Consolas', 9, QFont.Bold))
+        aci_str = f"{self.azimut:.1f}°"
+        tw_aci = font_metrics.width(aci_str)
+        painter.drawText(int(w / 2 - tw_aci / 2), int(h - 2), aci_str)
+
+        painter.end()

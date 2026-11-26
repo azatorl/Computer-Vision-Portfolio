@@ -1,0 +1,140 @@
+import subprocess
+import time
+import numpy as np
+from ultralytics import YOLO
+from PyQt5.QtCore import QThread, pyqtSignal
+
+
+class YOLOv8Thread(QThread):
+
+    tespit_signal = pyqtSignal(object, str, bool, int, float, list)
+
+    MODEL_PATH = "/home/azat/teknofest_yolo/runs/merged/rocket_airdefense_v2/weights/best.pt"
+
+    TCP_URL = "tcp://10.42.0.61:8888"
+
+    WIDTH = 640
+    HEIGHT = 480
+    CONF = 0.25
+
+    def __init__(self):
+        super().__init__()
+
+        self.running = True
+        self.model = YOLO(self.MODEL_PATH)
+        self.model.to("cuda")
+        self.process = None
+        self.yolo_fps = 0.0
+
+    def run(self):
+
+        ffmpeg_cmd = [
+            "ffmpeg",
+            "-loglevel", "warning",
+            "-f", "h264",
+            "-i", self.TCP_URL,
+            "-f", "rawvideo",
+            "-pix_fmt", "bgr24",
+            "-s", "640x480",
+            "-an",
+            "-"
+        ]
+
+        try:
+
+            print(">>> FFmpeg baslatiliyor...")
+            print(">>> Kamera:", self.TCP_URL)
+
+            self.process = subprocess.Popen(
+                ffmpeg_cmd,
+                stdout=subprocess.PIPE,
+                stderr=None,
+                bufsize=10**8
+            )
+
+            frame_size = self.WIDTH * self.HEIGHT * 3
+
+            frame_count = 0
+            fps_start = time.time()
+
+            print(">>> Frame bekleniyor...")
+
+            while self.running:
+
+                raw = self.process.stdout.read(frame_size)
+
+                if len(raw) != frame_size:
+                    print(f">>> Eksik frame: {len(raw)}/{frame_size}")
+                    self.msleep(10)
+                    continue
+
+                frame = np.frombuffer(
+                    raw,
+                    dtype=np.uint8
+                ).reshape(
+                    self.HEIGHT,
+                    self.WIDTH,
+                    3
+                ).copy()
+
+                results = self.model.predict(
+                    source=frame,
+                    imgsz=640,
+                    conf=self.CONF,
+                    half=True,
+                    verbose=False
+                )
+
+                result = results[0]
+
+                # FPS sayac
+                frame_count += 1
+                if frame_count % 30 == 0:
+                    elapsed = time.time() - fps_start
+                    self.yolo_fps = frame_count / elapsed
+                    print(f">>> YOLO FPS: {self.yolo_fps:.1f}")
+
+                if result.boxes is None or len(result.boxes) == 0:
+                    self.tespit_signal.emit(
+                        frame, "HEDEF YOK", False, 0, 0.0, [0, 0, 0, 0]
+                    )
+                    continue
+
+                best_index = int(result.boxes.conf.argmax().item())
+                box = result.boxes[best_index]
+                confidence = float(box.conf.item())
+                class_id = int(box.cls.item())
+                hedef_tur = result.names[class_id]
+                x1, y1, x2, y2 = map(int, box.xyxy[0].tolist())
+                bbox = [x1, y1, x2, y2]
+                guven_orani = int(confidence * 100)
+                is_dost = False
+                menzil_m = 0.0
+
+                self.tespit_signal.emit(
+                    frame, hedef_tur, is_dost, guven_orani, menzil_m, bbox
+                )
+
+        except Exception as e:
+            print()
+            print("================================")
+            print("YOLO THREAD HATASI")
+            print("================================")
+            print(e)
+            print("================================")
+            print()
+
+        finally:
+            if self.process is not None:
+                try:
+                    self.process.kill()
+                except Exception:
+                    pass
+
+    def stop(self):
+        self.running = False
+        if self.process is not None:
+            try:
+                self.process.kill()
+            except Exception:
+                pass

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1600</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SATÜRN HAVA SAVUNMA SİSTEMİ - KOMUTA MERKEZİ V1.0</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow, QWidget#centralwidget {
+    background-color: #060806;
+}
+QFrame {
+    border: 1px solid #005500;
+    border-radius: 4px;
+    background-color: #0B0F0B;
+}
+QLabel {
+    color: #00FF00;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+    font-weight: bold;
+}
+QPushButton {
+    background-color: #121A12;
+    color: #00FF00;
+    border: 2px solid #006600;
+    border-radius: 4px;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px;
+}
+QPushButton:hover {
+    background-color: #003300;
+    border: 2px solid #00FF00;
+}
+QPushButton:pressed {
+    background-color: #00FF00;
+    color: #000000;
+}
+QComboBox {
+    background-color: #060806;
+    color: #00FF00;
+    border: 1px solid #006600;
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+    padding: 4px;
+}
+QLCDNumber {
+    color: #00FF00;
+    background-color: #000000;
+    border: 1px solid #008800;
+}
+QTextEdit#txt_haber_akisi {
+    background-color: #020402;
+    color: #00FF00;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #005500;
+    border-radius: 4px;
+    padding: 6px;
+}
+QCheckBox {
+    color: #00FF00;
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+    font-weight: bold;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="main_layout">
+    <property name="spacing"><number>8</number></property>
+    <property name="leftMargin"><number>8</number></property>
+    <property name="topMargin"><number>8</number></property>
+    <property name="rightMargin"><number>8</number></property>
+    <property name="bottomMargin"><number>8</number></property>
+    <item>
+     <layout class="QHBoxLayout" name="ust_katman_layout">
+      <property name="spacing"><number>8</number></property>
+      <item>
+       <widget class="QFrame" name="frame">
+        <property name="minimumSize"><size><width>360</width><height>0</height></size></property>
+        <property name="maximumSize"><size><width>400</width><height>16777215</height></size></property>
+        <layout class="QVBoxLayout" name="sol_panel_layout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="styleSheet"><string notr="true">color: #00FF00; font-size: 14px; border-bottom: 1px solid #005500; padding-bottom: 4px;</string></property>
+           <property name="text"><string>GÖREV KONTROL PANELİ</string></property>
+           <property name="alignment"><set>Qt::AlignCenter</set></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QStackedWidget" name="stackedWidget">
+           <property name="currentIndex"><number>0</number></property>
+           <widget class="QWidget" name="page">
+            <layout class="QVBoxLayout" name="page1_layout">
+             <item>
+              <layout class="QHBoxLayout" name="page1_header">
+               <item><widget class="QLabel" name="label_2"><property name="text"><string>AŞAMA 1: MANUEL ATIŞ</string></property></widget></item>
+               <item><widget class="QPushButton" name="btn_geri_2"><property name="text"><string>&lt; GERİ</string></property></widget></item>
+               <item><widget class="QPushButton" name="btn_ileri_3"><property name="text"><string>İLERİ &gt;</string></property></widget></item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QLCDNumber" name="lcdNumber">
+               <property name="minimumSize"><size><width>0</width><height>45</height></size></property>
+               <property name="digitCount"><number>5</number></property>
+              </widget>
+             </item>
+             <item><widget class="QLabel" name="label_7"><property name="text"><string>1. HEDEF SEÇİMİ</string></property></widget></item>
+             <item><widget class="QComboBox" name="comboBox"></widget></item>
+             <item><widget class="QLabel" name="label_8"><property name="text"><string>2. HEDEF SEÇİMİ</string></property></widget></item>
+             <item><widget class="QComboBox" name="comboBox_2"></widget></item>
+             <item><widget class="QLabel" name="label_9"><property name="text"><string>3. HEDEF SEÇİMİ</string></property></widget></item>
+             <item><widget class="QComboBox" name="comboBox_3"></widget></item>
+             <item><widget class="QLabel" name="label_10"><property name="text"><string>4. HEDEF SEÇİMİ</string></property></widget></item>
+             <item><widget class="QComboBox" name="comboBox_4"></widget></item>
+             <item>
+              <widget class="QLabel" name="label_15">
+               <property name="styleSheet"><string notr="true">color: #00FF00; background-color: #062206; border: 1px solid #00AA00; padding: 6px; border-radius: 3px;</string></property>
+               <property name="text"><string>SİSTEM MODU : MANUEL</string></property>
+               <property name="alignment"><set>Qt::AlignCenter</set></property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="page_3">
+            <layout class="QVBoxLayout" name="page2_layout">
+             <item>
+              <layout class="QHBoxLayout" name="page2_header">
+               <item><widget class="QLabel" name="label_3"><property name="text"><string>AŞAMA 2: SÜRÜ SALDIRISI</string></property></widget></item>
+               <item><widget class="QPushButton" name="btn_geri_3"><property name="text"><string>&lt; GERİ</string></property></widget></item>
+               <item><widget class="QPushButton" name="btn_ileri_4"><property name="text"><string>İLERİ &gt;</string></property></widget></item>
+              </layout>
+             </item>
+             <item><widget class="QLabel" name="label_12"><property name="text"><string>AKTİF TUR : 1 / 4</string></property></widget></item>
+             <item><widget class="QCheckBox" name="checkBox"><property name="text"><string>[ BEKLENİYOR ] HEDEF 1 (KOL 1)</string></property></widget></item>
+             <item><widget class="QCheckBox" name="checkBox_2"><property name="text"><string>[ BEKLENİYOR ] HEDEF 2 (KOL 2)</string></property></widget></item>
+             <item><widget class="QCheckBox" name="checkBox_3"><property name="text"><string>[ BEKLENİYOR ] HEDEF 3 (KOL 3)</string></property></widget></item>
+             <item>
+              <widget class="QLabel" name="label_11">
+               <property name="styleSheet"><string notr="true">color: #00FF00; background-color: #062206; border: 1px solid #00AA00; padding: 6px; border-radius: 3px;</string></property>
+               <property name="text"><string>SİSTEM MODU : OTONOM</string></property>
+               <property name="alignment"><set>Qt::AlignCenter</set></property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="page_2">
+            <layout class="QVBoxLayout" name="page3_layout">
+             <item>
+              <layout class="QHBoxLayout" name="page3_header">
+               <item><widget class="QLabel" name="label_4"><property name="text"><string>AŞAMA 3: KATMANLI SAVUNMA</string></property></widget></item>
+               <item><widget class="QPushButton" name="btn_geri"><property name="text"><string>&lt; GERİ</string></property></widget></item>
+               <item><widget class="QPushButton" name="btn_ileri"><property name="text"><string>İLERİ &gt;</string></property></widget></item>
+              </layout>
+             </item>
+             <item><widget class="QLabel" name="label_14"><property name="text"><string>AKTİF TUR : 1 / 8</string></property></widget></item>
+             <item><widget class="QListWidget" name="listWidget"></widget></item>
+             <item>
+              <widget class="QLabel" name="label_13">
+               <property name="styleSheet"><string notr="true">color: #00FF00; background-color: #062206; border: 1px solid #00AA00; padding: 6px; border-radius: 3px;</string></property>
+               <property name="text"><string>SİSTEM MODU : OTONOM</string></property>
+               <property name="alignment"><set>Qt::AlignCenter</set></property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_kamera">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="scaledContents">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 2px solid #00AA00; border-radius: 4px; background-color: #000000; color: #00FF00; font-size: 14px;</string>
+        </property>
+        <property name="text">
+         <string>[ CANLI AKIŞ BEKLENİYOR ]</string>
+        </property>
+        <property name="alignment"><set>Qt::AlignCenter</set></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_sag">
+        <property name="minimumSize"><size><width>350</width><height>0</height></size></property>
+        <property name="maximumSize"><size><width>400</width><height>16777215</height></size></property>
+        <layout class="QVBoxLayout" name="sag_panel_layout">
+         <item>
+          <widget class="QWidget" name="widget_gosterge">
+           <property name="minimumSize"><size><width>0</width><height>170</height></size></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="txt_haber_akisi">
+           <property name="readOnly"><bool>true</bool></property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_ates">
+      <property name="minimumSize"><size><width>0</width><height>85</height></size></property>
+      <property name="maximumSize"><size><width>16777215</width><height>100</height></size></property>
+      <layout class="QHBoxLayout" name="alt_panel_layout">
+       <item>
+        <layout class="QVBoxLayout" name="aci_layout">
+         <item><widget class="QLabel" name="label_5"><property name="styleSheet"><string notr="true">border: 1px solid #004400; padding: 4px; border-radius: 2px;</string></property><property name="text"><string>YAW : 0.0°</string></property></widget></item>
+         <item><widget class="QLabel" name="label_6"><property name="styleSheet"><string notr="true">border: 1px solid #004400; padding: 4px; border-radius: 2px;</string></property><property name="text"><string>PITCH : 0.0°</string></property></widget></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="mod_buton_layout">
+         <item><widget class="QPushButton" name="pushButton"><property name="text"><string>OTONOM MOD</string></property></widget></item>
+         <item><widget class="QPushButton" name="pushButton_2"><property name="text"><string>MANUEL MOD</string></property></widget></item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="ates_layout">
+         <item><widget class="QPushButton" name="btn_ates"><property name="text"><string>ATEŞ SERBEST</string></property></widget></item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
