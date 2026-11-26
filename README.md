@@ -2,7 +2,13 @@
 
 **Python · OpenCV · Image Processing · Deep Learning**
 
-A personal engineering portfolio focused on computer vision and practical image processing for civilian applications.
+A personal engineering portfolio featuring standalone computer vision examples and reflections on student engineering experience. The practical examples are intended for general-purpose civilian applications.
+
+## Featured project
+
+[**TEKNOFEST 2026 — Computer Vision Engineering Experience**](projects/teknofest_2026/README.md)
+
+A retrospective covering CVAT annotation, data preparation, experimental engineering and multidisciplinary teamwork with the Saturn Rocket Team (MİMAS). The case study describes transferable skills and does not distribute operational project materials.
 
 ## Focus areas
 
@@ -17,7 +23,7 @@ A personal engineering portfolio focused on computer vision and practical image 
 | --- | --- |
 | Classical image processing | Initial example available |
 | Industrial visual inspection examples | Planned |
-| Experiment documentation | Planned |
+| Engineering experience case study | Available |
 
 ## About
 
