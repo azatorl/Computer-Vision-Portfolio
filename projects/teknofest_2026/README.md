@@ -17,7 +17,7 @@ I contributed to the computer vision work for the team's TEKNOFEST 2026 Çelikku
 
 ## Final model selection
 
-`rocket_son` was the last model I used and my preferred run based on the results I observed during project testing. I present this as my project selection. Comparable validation scores for the run are unavailable.
+`rocket_son` was the last model I used and my preferred run based on the results I observed during project testing. This page documents the project and my contributions. The model weights and original implementation are unpublished, and comparable validation scores are unavailable.
 
 ## Dataset records
 
