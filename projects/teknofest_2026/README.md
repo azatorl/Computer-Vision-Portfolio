@@ -28,6 +28,6 @@ I contributed to the computer vision work for the team's TEKNOFEST 2026 Çelikku
 
 These figures describe the two records above. Their association with the final run remains unverified.
 
-## Engineering notes
+## Lessons from testing
 
-[Data preparation, experimental work, and team responsibilities](documentation/engineering_contributions.md)
+Preparing and labeling images with the team showed me how much consistency in annotations matters. Repeated lab tests helped me build a routine for documenting observations, debugging across software and hardware, and sharing findings with teammates.
