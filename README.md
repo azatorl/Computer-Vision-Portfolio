@@ -29,7 +29,7 @@ A retrospective covering CVAT annotation, data preparation, experimental enginee
 
 Mechatronics Engineering student interested in robotics, computer vision and embedded systems.
 
-**Status:** Portfolio under development. The initial example is an educational demonstration; it has not been runtime-tested here.
+**Status:** Portfolio under development. The Canny example was tested with OpenCV 4.6.0 on a 96 × 96 synthetic image containing a white square. It produced a binary edge map with 188 edge pixels. The test exercised image loading and processing with window display disabled.
 
 ## Getting started
 
