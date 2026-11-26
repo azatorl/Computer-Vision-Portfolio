@@ -15,7 +15,7 @@ A personal engineering portfolio focused on computer vision and practical image 
 
 | Area | Status |
 | --- | --- |
-| Classical image processing | Planned |
+| Classical image processing | Initial example available |
 | Industrial visual inspection examples | Planned |
 | Experiment documentation | Planned |
 
@@ -23,4 +23,15 @@ A personal engineering portfolio focused on computer vision and practical image 
 
 Mechatronics Engineering student interested in robotics, computer vision and embedded systems.
 
-**Status:** Portfolio under development. Source code, demonstrations and results will be added as standalone examples are prepared and verified.
+**Status:** Portfolio under development. The initial example is an educational demonstration; it has not been runtime-tested here.
+
+## Getting started
+
+The [Canny edge detection example](examples/image_processing/edge_detection.py) demonstrates grayscale conversion, Gaussian smoothing and edge detection on a local still image.
+
+```bash
+python -m pip install -r requirements.txt
+python examples/image_processing/edge_detection.py path/to/image.jpg
+```
+
+A desktop environment is required to display the output windows.
