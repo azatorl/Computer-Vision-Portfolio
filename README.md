@@ -2,80 +2,42 @@
 
 **Azat Oral | Mechatronics Engineering | İzmir Kâtip Çelebi University**
 
-Computer vision, dataset engineering and experimental machine learning projects, with an emphasis on practical Python development and reproducible results.
+## TEKNOFEST 2026 — MİMAS
 
-## Featured Project · TEKNOFEST 2026
+**Saturn Rocket Team | Computer Vision Developer | 2025–2026**
 
-**Saturn Rocket Team — MİMAS**  
-**Role:** Computer Vision Developer
+I independently contributed to the computer vision work of our multidisciplinary student engineering team, focusing on visual data preparation, image annotation, Python development and machine learning experiments.
 
-I independently carried out the computer vision work within the team, from collecting and manually annotating images to developing Python software and experimenting with YOLO-family models.
+### My Contributions
 
-### Engineering Contributions
+- Collected and prepared approximately 12,000 images during the project, as documented in my August 2026 project notes.
+- Worked with CVAT for manual image annotation and dataset preparation.
+- Developed Python and OpenCV utilities for image and video processing.
+- Conducted experiments with YOLO-family models and participated in practical software testing.
+- Collaborated with team members on camera and software integration.
 
-| Area | My contribution |
+The project strengthened my experience in dataset engineering, computer vision, experimental machine learning and engineering teamwork. The image count refers to prepared images, not a verified count of final annotated training samples.
+
+**Technologies:** Python · OpenCV · CVAT · Ultralytics YOLO · PyTorch · Linux · Raspberry Pi
+
+### Project Records
+
+Original project materials are retained as historical records. The original custom-trained model checkpoint and its evaluation metrics have not been independently verified. No unverified model accuracy or performance figures are claimed.
+
+## Independent Computer Vision Examples
+
+| Example | Description |
 | --- | --- |
-| Dataset engineering | Image annotation, organization and preparation of visual data |
-| Model development | Experiments with YOLO-family object detection models |
-| Computer vision | Image and video processing with Python and OpenCV |
-| Software development | Python application development, interface work and experimental testing |
+| [Canny Edge Detection](examples/image_processing/edge_detection.py) | Classical image processing using OpenCV. |
+| [Offline Video Frame Extraction](examples/video_processing/extract_frames.py) | Export of sampled frames from local video files. |
+| [Software Tests](tests/test_examples.py) | Functional checks using synthetic images and video. |
 
-**Technology stack:** Python · OpenCV · YOLO · CVAT · Linux · Raspberry Pi
+## Sources & Project Gallery
 
-### Original Project Materials
+- [Saturn Havacılık — Official Team Website](https://www.saturnhavacilik.com/)
+- [TEKNOFEST — Official Photo Gallery](https://www.teknofest.org/tr/galeri/resimler/)
+- [OpenCV Documentation](https://docs.opencv.org/)
+- [CVAT Documentation](https://docs.cvat.ai/)
+- [Ultralytics Documentation](https://docs.ultralytics.com/)
 
-The repository preserves the author's competition source files, model files, interface files and annotation archive. The available model filenames refer to YOLOv8n, YOLO11n and YOLO26n. The `rocket_son.zip` archive is associated with the author's most frequently used model experiments; it is not itself a verified trained-weight checkpoint.
-
-Custom checkpoint provenance, comparative model accuracy and integrated system performance have not been independently verified. No model is ranked as the best without supporting evaluation records.
-
-## Independent Computer Vision Demonstrations
-
-### 01 · Canny Edge Detection
-
-![Canny edge detection: input and actual output](assets/canny-demo.svg)
-
-A standalone OpenCV example that converts an input image to grayscale, applies Gaussian smoothing and extracts a binary edge map.
-
-**Verified result:** 188 nonzero edge pixels from a 96 × 96 synthetic input.
-
-[View Python source](examples/image_processing/edge_detection.py)
-
-### 02 · Offline Video Frame Extraction
-
-![Four exported frames from the synthetic MP4 test](assets/video-frame-extraction-demo.svg)
-
-An independent utility adapted from my original project archive. It samples local MP4 videos and saves the extracted frames as sequential JPEG files.
-
-**Verified result:** four readable 64 × 64 JPEG frames from a 20-frame, 25 FPS synthetic video at a 0.2-second sampling interval.
-
-[View Python source](examples/video_processing/extract_frames.py)
-
-## Software Verification
-
-| Independent test | Result |
-| --- | --- |
-| Canny edge detection | PASS — 188 edge pixels |
-| Offline video frame extraction | PASS — 4 exported JPEG frames |
-
-Both source files were matched to their GitHub blob hashes and tested on 26 November 2026 using Python 3.13.5, OpenCV 4.13.0 and NumPy 2.3.5.
-
-The visual examples represent synthetic software tests, not competition photographs or YOLO accuracy benchmarks.
-
-### Run the Independent Examples
-
-```bash
-python -m pip install -r requirements.txt
-python examples/image_processing/edge_detection.py path/to/image.jpg
-python examples/video_processing/extract_frames.py ./videos ./frames
-```
-
-The [standalone test suite](tests/test_examples.py) uses synthetic media rather than the original competition datasets.
-
-## References & Attribution
-
-- **Original project:** Azat Oral — TEKNOFEST 2026 computer vision development, Saturn Rocket Team / MİMAS.
-- **Visual demonstrations:** generated from independent OpenCV test outputs for this portfolio.
-- [OpenCV documentation](https://docs.opencv.org/)
-- [Ultralytics documentation](https://docs.ultralytics.com/)
-- [CVAT documentation](https://docs.cvat.ai/)
-- [NumPy documentation](https://numpy.org/doc/)
+The team website and event gallery are external references, not evidence of individual model performance. Project photographs are not reproduced without confirmed permission.
