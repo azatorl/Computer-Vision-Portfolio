@@ -16,7 +16,7 @@ I work with Python and OpenCV on image processing, dataset preparation, and embe
 From the repository root, install the dependency and give the script the path to a local image.
 
 ```bash
-python -m pip install -r requirements.txt
+python -m pip install opencv-python
 python examples/image_processing/edge_detection.py path/to/image.jpg
 ```
 
