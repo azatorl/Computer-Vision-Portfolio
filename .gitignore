@@ -1,0 +1,29 @@
+# IDE and Python caches
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local data and generated artifacts
+runs/
+logs/
+dataset/
+merged_dataset/
+*.pt
+*.onnx
+*.engine
+*.avi
+*.mp4
+*.mkv
+*.db
+
+# Backups and secrets
+*.bak
+*_bak
+*.full_backup
+*.before_*
+*~
+.env
+.env.*
