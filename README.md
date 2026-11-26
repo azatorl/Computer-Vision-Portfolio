@@ -1,105 +1,60 @@
 # Computer Vision Portfolio
 
-**Azat Oral | Mechatronics Engineering | İzmir Kâtip Çelebi University**
+**Azat Oral — Mechatronics Engineering | İzmir Kâtip Çelebi University**
 
-A collection of practical computer vision work focused on Python, OpenCV, image processing, offline video processing, and reproducible engineering experiments.
+Practical computer vision projects using Python, OpenCV and visual data processing.
+
+## TEKNOFEST 2026
+
+Computer vision development with Saturn Rocket Team — MİMAS.
+
+My work focused on image processing, data annotation, YOLO experiments and video processing. This repository contains selected standalone computer vision examples, including a frame extraction utility adapted from my original project archive.
+
+**Technologies:** Python · OpenCV · YOLO · CVAT · Raspberry Pi
 
 ## Projects
 
-| Project | Technical focus | Status |
-| --- | --- | --- |
-| [Canny edge detection](examples/image_processing/edge_detection.py) | Grayscale conversion, Gaussian smoothing and edge extraction | Smoke tested |
-| [Offline video frame extraction](examples/video_processing/extract_frames.py) | MP4 decoding, temporal sampling and JPEG export | Smoke tested |
-| TEKNOFEST 2026 — computer vision experience | Image acquisition, annotation workflows, object detection research and experimental evaluation | Project experience documented; selected independent code available |
+| Project | Description |
+| --- | --- |
+| [Canny Edge Detection](examples/image_processing/edge_detection.py) | Extracts edges from local images using OpenCV. |
+| [Video Frame Extraction](examples/video_processing/extract_frames.py) | Converts local MP4 videos into sampled JPEG frames. |
+| [Software Tests](tests/test_examples.py) | Functional checks using synthetic images and video. |
 
-## TEKNOFEST 2026 — Project Background
+## Visual Demo
 
-I contributed to computer vision development as part of a student engineering team participating in TEKNOFEST 2026. My work involved Python-based image processing, data preparation and experiments with YOLO-family object detection models. The experience strengthened my understanding of practical visual data workflows and the challenges of integrating computer vision into a larger engineering project.
+![Actual Canny output on a synthetic square](assets/canny-demo.svg)
 
-The original project archive contains Python scripts, annotation files, YAML configuration files, model files and technical documents. The public repository presents a standalone offline video processing utility derived from that archive, rather than the complete competition system.
+Synthetic test: 188 edge pixels from a 96 × 96 input, using OpenCV 4.13.0. This is a portfolio demonstration, not a competition result.
 
-The archive includes files named `yolov8n.pt`, `yolo11n.pt` and `yolo26n.pt`. Their exact checkpoint provenance and training status have not been verified. The supplied archive does not contain image or video samples or verified training-performance plots. Accordingly, this portfolio does not claim that a complete dataset, trained custom model or reproducible model benchmark is included.
+<details>
+<summary>Additional reference image</summary>
 
-## Repository Structure
+![External edge detection example](https://upload.wikimedia.org/wikipedia/commons/9/93/Valve_monochrome_canny_%286%29.PNG)
 
-```text
-Computer-Vision-Portfolio/
-├── README.md
-├── requirements.txt
-├── examples/
-│   ├── image_processing/
-│   │   └── edge_detection.py
-│   └── video_processing/
-│       └── extract_frames.py
-└── tests/
-    └── test_examples.py
-```
+External example by [Simpsons contributor](https://commons.wikimedia.org/wiki/File:Valve_monochrome_canny_(6).PNG), Wikimedia Commons, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Unmodified; not my own experimental output.
 
-## Getting Started
+</details>
 
-Python 3.13.5 was used for the latest smoke tests.
+## Quick Start
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
 python -m pip install -r requirements.txt
-```
-
-The desktop image example requires an OpenCV-compatible graphical environment. The automated tests do not open GUI windows.
-
-### 1. Image Processing — Canny Edge Detection
-
-```bash
 python examples/image_processing/edge_detection.py path/to/image.jpg
-```
-
-The implementation converts a local image to grayscale, applies Gaussian smoothing and produces a binary edge map using the Canny algorithm. The original image and the edge map are displayed in separate windows.
-
-### 2. Offline Video Processing — Frame Extraction
-
-```bash
 python examples/video_processing/extract_frames.py ./videos ./frames
-```
-
-The utility reads local MP4 files and exports sampled frames as sequentially named JPEG files. The original competition archive's frame extraction script was adapted to accept portable command-line paths instead of machine-specific directories. Existing output files are protected against accidental overwriting.
-
-## Verification and Testing
-
-```bash
 python -m unittest discover -s tests -v
 ```
 
-| Test | Input | Verified result |
-| --- | --- | --- |
-| Canny smoke test | Synthetic 96 × 96 grayscale-compatible square image | Non-empty binary edge map with expected dimensions |
-| Frame extraction smoke test | Synthetic 20-frame, 25 FPS MP4 video | Four readable 64 × 64 JPEG frames at a 0.2-second sampling interval |
+## Project Status
 
-Both tests passed locally with Python 3.13.5, OpenCV 4.13.0 and NumPy 2.3.5. These are functional software checks, not object detection accuracy or field-performance benchmarks.
+- [x] Independent image and video processing examples
+- [x] Dependencies, test scripts and visual demonstration
+- [ ] Original project photographs and verified model evaluation results
 
-## Engineering Skills
+The original archive contains annotations, model files and technical documents. Full competition datasets and checkpoints are not included in this public repository. Verified training metrics and original project photographs were not available in the supplied archive.
 
-- Python and OpenCV
-- Classical image preprocessing
-- Video decoding and offline frame sampling
-- Visual data organization and annotation workflows
-- Object detection research with YOLO-family models
-- Reproducible testing and technical documentation
+## References
 
-## Development Checklist
-
-- [x] Publish standalone image processing example.
-- [x] Adapt and publish the archive-derived offline frame extraction utility.
-- [x] Document dependencies and usage.
-- [x] Verify both examples with synthetic-media smoke tests.
-- [ ] Add independently shareable example photographs and output visualizations.
-- [ ] Document verified model-evaluation results when suitable supporting records are available.
-
-## References and Source Attribution
-
-- **Original project source:** Azat Oral's 2026 TEKNOFEST computer vision project archive, specifically the original `scripts/extract_frames.py` utility. The public version includes portability and error-handling adaptations.
-- [OpenCV documentation](https://docs.opencv.org/) — image processing and video I/O.
-- [NumPy documentation](https://numpy.org/doc/) — numerical arrays and synthetic test data.
-- [Ultralytics documentation](https://docs.ultralytics.com/) — background reference for YOLO-family object detection research; Ultralytics is not required to execute the published examples.
-- [Python unittest documentation](https://docs.python.org/3/library/unittest.html) — automated functional tests.
-
-The original competition materials and the public examples are distinct. The tests were added during portfolio preparation; they are not historical competition results.
+- Original source: my TEKNOFEST 2026 project archive — `scripts/extract_frames.py` (adapted for portable use).
+- [OpenCV — Canny Edge Detection](https://docs.opencv.org/4.8.0/da/d22/tutorial_py_canny.html)
+- [Ultralytics documentation](https://docs.ultralytics.com/)
+- [NumPy documentation](https://numpy.org/doc/)
