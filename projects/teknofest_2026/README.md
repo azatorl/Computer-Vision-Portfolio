@@ -1,86 +1,33 @@
-# TEKNOFEST 2026 | Computer Vision Engineering Experience
+# TEKNOFEST 2026 | Computer Vision Case Study
 
-**Saturn Rocket Team (MİMAS) · Izmir Katip Celebi University**
+**Azat Oral · Computer Vision Team Member · Saturn Rocket Team (MİMAS)**  
+İzmir Kâtip Çelebi University
 
-## Overview
+I contributed to the computer vision work for the team's TEKNOFEST 2026 Çelikkubbe project. My work focused on preparing image data, contributing to annotation, and participating in iterative testing with the team.
 
-A retrospective of my student engineering experience in a multidisciplinary TEKNOFEST 2026 team. This case study focuses on transferable computer vision, data preparation, experimental work and collaboration skills.
+## My contributions
 
-## Project context and learning objectives
-
-The team participated in the TEKNOFEST 2026 Çelikkubbe Air Defense Systems competition. This page documents my educational experience and individual contribution, rather than the operational implementation of the competition system.
-
-My learning objectives were to develop practical computer vision skills, gain experience working with real image data and annotation tools, become more familiar with camera-based embedded computing, and learn how to contribute to a multidisciplinary engineering team.
-
-## My role
-
-Computer Vision Team Member
-
-- Contributed to image collection, video frame extraction and dataset preparation.
-- Participated in a team annotation effort involving thousands of images using CVAT.
-- Worked with Python, OpenCV and machine-learning development tools.
-- Gained practical experience with embedded computing, camera hardware and Linux.
-- Participated in laboratory experiments, physical measurements and iterative testing.
-- Collaborated with teammates across software and hardware disciplines.
-
-## Work completed
-
-| Activity | Contribution |
+| Area | Contribution |
 | --- | --- |
-| Data collection | Participated in collecting images and recorded video |
-| Data preparation | Extracted video frames and helped organize image data |
-| Annotation | Used CVAT as part of a team effort involving thousands of images |
-| Software development | Worked with Python and computer vision tools |
-| Experimental work | Participated in repeated laboratory tests and physical measurements |
-| Collaboration | Coordinated with other contributors, including the teammate responsible for the GUI |
+| Image data | Helped collect images and recorded footage, extract video frames, and organize image data |
+| Annotation | Labeled images in CVAT as part of a team annotation effort |
+| Computer vision | Worked with Python, OpenCV, and YOLO-based experiments |
+| Test and integration | Participated in laboratory testing and physical measurements using a Raspberry Pi 4 and Raspberry Pi HQ Camera |
+| Collaboration | Coordinated with software and hardware teammates, including the teammate who developed the GUI |
 
-## Dataset records and model selection
+## Final model selection
 
-| Record | Finding | Scope |
-| --- | --- | --- |
-| Training manifest (`train.txt`) | 687 JPEG paths, all distinct | Counts file references. Image contents and visual duplicates were not checked. |
-| Dataset configuration (`data(3).yaml`) | 5 class entries | Describes this configuration. The archived run's configuration remains unverified. |
-| Preferred model run | `rocket_son` | My selection from project testing. Comparable validation scores are unavailable. |
+`rocket_son` was the last model I used and my preferred run based on the results I observed during project testing. I present this as my project selection. Comparable validation scores for the run are unavailable.
 
-## Technical experience
+## Dataset records
 
-| Area | Experience |
-| --- | --- |
-| Programming | Python |
-| Computer vision | OpenCV and YOLO ecosystem |
-| Data annotation | CVAT |
-| Embedded computing | Raspberry Pi 4 |
-| Camera hardware | Raspberry Pi HQ Camera |
-| Development environment | Ubuntu / Linux |
-| Engineering practice | Experimental testing, documentation and collaboration |
+| Source | Recorded value | What it describes |
+| --- | ---: | --- |
+| Training manifest (`train.txt`) | 687 | Distinct JPEG file paths listed in the manifest |
+| Dataset configuration (`data(3).yaml`) | 5 | Class entries in the configuration reviewed |
 
-The table describes tools and experience, not an operational system specification.
+These figures describe the two records above. Their association with the final run remains unverified.
 
-## Team collaboration
+## Engineering notes
 
-This was a collaborative student project. My primary contribution was computer vision and data preparation. The graphical user interface was developed by a teammate and is not claimed as my individual work.
-
-## Further reading
-
-- [Engineering contributions and learning outcomes](documentation/engineering_contributions.md)
-
-## Publication scope
-
-This public case study contains a career-oriented overview only. Internal competition reports, operational software, training datasets, model weights, detailed test results and interface captures are not distributed. No teammate names or student numbers are included.
-
-## Repository contents and availability
-
-| Material | Availability |
-| --- | --- |
-| Public engineering experience summary | Available on this page |
-| Individual contributions and learning outcomes | Available in the documentation directory |
-| Standalone educational image-processing code | [Available in the portfolio examples](../../examples/image_processing/edge_detection.py) |
-| Original competition source code, configuration and text files | Not distributed |
-| Internal datasets, annotations and trained weights | Not distributed |
-| Internal reports and operational screenshots | Not distributed |
-
-The standalone example is separate from the competition project. This repository is a documentation portfolio, not a reproduction package for the competition system.
-
-## Author
-
-Azat Oral — Mechatronics Engineering Student
+[Data preparation, experimental work, and team responsibilities](documentation/engineering_contributions.md)
