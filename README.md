@@ -2,13 +2,12 @@
 
 **Azat Oral · Mechatronics Engineering · İzmir Kâtip Çelebi University**
 
-I work with Python and OpenCV on image processing, dataset preparation, and embedded computer vision. This portfolio brings together a team project case study and a standalone implementation.
+I work with Python and OpenCV on image processing, dataset preparation, and embedded computer vision. This portfolio includes a standalone OpenCV implementation.
 
 ## Portfolio
 
 | Project | What it demonstrates |
 | --- | --- |
-| [TEKNOFEST 2026 computer vision case study](projects/teknofest_2026/README.md) | My contributions to image collection, frame extraction, CVAT annotation, and laboratory testing with Saturn Rocket Team (MİMAS) |
 | [Canny edge detection](examples/image_processing/edge_detection.py) | Grayscale conversion, Gaussian smoothing, and edge extraction on a local image |
 
 ## Run the OpenCV example
